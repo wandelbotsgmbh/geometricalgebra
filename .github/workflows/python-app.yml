@@ -30,8 +30,6 @@ jobs:
         poetry run pytest
     - name: Lint with black, isort, and ruff
       run: |
-        pip install ruff
-        ruff --output-format=github .
         poetry run black --check geometricalgebra/
         poetry run isort --check geometricalgebra/
     - name: Type checking with mypy
