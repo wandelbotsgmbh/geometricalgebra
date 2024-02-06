@@ -100,7 +100,7 @@ class CGAVector(Vector):  # pylint: disable=too-many-public-methods
             multivector tensor of shape (..., 32) where each vector is special normalized
         """
         vectors = cls.xnp().asarray(vectors)
-        vectors = cls.xnp().pad(vectors, [*([(0, 0)] * (vectors.ndim - 1)), (0, 1)], mode="constant")  # type: ignore
+        vectors = cls.xnp().pad(vectors, [*([(0, 0)] * (vectors.ndim - 1)), (0, 1)], mode="constant")
         return cls.from_euclid(vectors)
 
     def up(self: Subtype) -> Subtype:
@@ -149,7 +149,7 @@ class CGAVector(Vector):  # pylint: disable=too-many-public-methods
                  0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.]])
         """
         vectors = cls.xnp().asarray(vectors, dtype=dtype)
-        paddings = [(0, 0)] * (len(vectors.shape) - 1) + [(0, 2)]  # type: ignore
+        paddings = [(0, 0)] * (len(vectors.shape) - 1) + [(0, 2)]
         vectors = cls.xnp().pad(vectors, paddings, mode="constant")
         return cls(vectors, 1)
 

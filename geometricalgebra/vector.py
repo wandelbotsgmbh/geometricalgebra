@@ -32,18 +32,18 @@ elif ga_numpy == "tensorflow":
     import tensorflow.experimental.numpy as tnp  # pylint: disable=import-error
     import tensorflow.linalg as tf_linalg  # pylint: disable=import-error
 
-    Array = ArrayLike = Any  # type: ignore
+    Array = ArrayLike = Any
     tnp.experimental_enable_numpy_behavior()  # dtype_conversion_mode="safe")
     tnp.linalg = tf_linalg
-    from tensorflow.nn import softmax  # type: ignore  # pylint: disable=import-error
+    from tensorflow.nn import softmax  # pylint: disable=import-error
 
     FRAMEWORK = Framework(tnp, tf_linalg, softmax)
 
 elif ga_numpy == "numpy":
-    from scipy.special import softmax  # type: ignore
+    from scipy.special import softmax
 
     FRAMEWORK = Framework(np, np.linalg, softmax)
-    Array = ArrayLike = Any  # type: ignore
+    Array = ArrayLike = Any
 else:
     raise NotImplementedError(f"Unknown backend: {ga_numpy}")
 

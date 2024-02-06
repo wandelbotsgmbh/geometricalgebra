@@ -32,9 +32,7 @@ jobs:
       run: |
         pip install ruff
         ruff --output-format=github .
-      continue-on-error: true
     - name: Type checking with mypy
       run: |
         pip install mypy
         mypy
-      continue-on-error: true
