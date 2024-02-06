@@ -28,10 +28,12 @@ jobs:
     - name: Test with pytest
       run: |
         poetry run pytest
-    - name: Lint with Ruff
+    - name: Lint with black, isort, and ruff
       run: |
         pip install ruff
         ruff --output-format=github .
+        python -m black --check geometricalgebra/
+        python -m isort --check geometricalgebra/
     - name: Type checking with mypy
       run: |
         pip install mypy
