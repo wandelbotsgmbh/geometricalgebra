@@ -64,13 +64,11 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 addopts = """
-    --cov=geometricalgebra --cov-report xml:reports/cov.xml
     --doctest-modules
-    --junitxml=reports/pytest.xml
     --nbval
     --mpl
     --mpl-baseline-path=baseline
-    --current-env"""
+    --nbval-current-env"""
 junit_family = "xunit2"
 norecursedirs = "develop .ipynb_checkpoints .venv .tox *.egg"
 testpaths = """
