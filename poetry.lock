@@ -1641,13 +1641,13 @@ test = ["pep440", "pre-commit", "pytest", "testpath"]
 
 [[package]]
 name = "nbval"
-version = "0.9.6"
+version = "0.10.0"
 description = "A py.test plugin to validate Jupyter notebooks"
 optional = false
-python-versions = "*"
+python-versions = ">=3.6, <4"
 files = [
-    {file = "nbval-0.9.6-py2.py3-none-any.whl", hash = "sha256:4f9b780997d8942408853513f2c5ee6c1863de193559fc3f95e1c1cde8110439"},
-    {file = "nbval-0.9.6.tar.gz", hash = "sha256:cfefcd2ef66ee2d337d0b252c6bcec4023384eb32e8b9e5fcc3ac80ab8cd7d40"},
+    {file = "nbval-0.10.0-py2.py3-none-any.whl", hash = "sha256:427e42caabeae39f493d8baca629b03816269fc11f1b7e2046e10929a3149a73"},
+    {file = "nbval-0.10.0.tar.gz", hash = "sha256:b4acefdc1132aef8a1b5b62bf9a93d128eba52839b2854ea3e42598f4db7beb3"},
 ]
 
 [package.dependencies]
@@ -1656,7 +1656,6 @@ ipykernel = "*"
 jupyter-client = "*"
 nbformat = "*"
 pytest = ">=2.8"
-six = "*"
 
 [[package]]
 name = "nest-asyncio"
@@ -3011,4 +3010,4 @@ all = ["jax", "jaxlib", "matplotlib", "tensorflow"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.11"
-content-hash = "61184d7fdb0d66bd91487750d28e8d7de1b2cd180c2bdbaab9b195d9274cf196"
+content-hash = "f0d710d5f7219a2d18918be0436b8c4ceecc351576a75f2358617bc822020135"

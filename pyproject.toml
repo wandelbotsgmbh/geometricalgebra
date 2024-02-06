@@ -28,7 +28,7 @@ mypy = "^1.8.0"
 isort = "5.10.1"
 darglint = "1.8.1"
 black = "24.1.1"
-nbval = "0.9.6"
+nbval = "0.10.0"
 coverage = "6.4.4"
 nlopt = { version = "*", platform = "linux" }
 pytest-cov = "4.1.0"
