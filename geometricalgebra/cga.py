@@ -100,7 +100,7 @@ class CGAVector(Vector):  # pylint: disable=too-many-public-methods
             multivector tensor of shape (..., 32) where each vector is special normalized
         """
         vectors = cls.xnp().asarray(vectors)
-        vectors = cls.xnp().pad(vectors, [*([(0, 0)] * (vectors.ndim - 1)), (0, 1)], mode="constant")  # type: ignore
+        vectors = cls.xnp().pad(vectors, [*([(0, 0)] * (vectors.ndim - 1)), (0, 1)], mode="constant")
         return cls.from_euclid(vectors)
 
     def up(self: Subtype) -> Subtype:
@@ -149,7 +149,7 @@ class CGAVector(Vector):  # pylint: disable=too-many-public-methods
                  0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.]])
         """
         vectors = cls.xnp().asarray(vectors, dtype=dtype)
-        paddings = [(0, 0)] * (len(vectors.shape) - 1) + [(0, 2)]  # type: ignore
+        paddings = [(0, 0)] * (len(vectors.shape) - 1) + [(0, 2)]
         vectors = cls.xnp().pad(vectors, paddings, mode="constant")
         return cls(vectors, 1)
 
@@ -454,7 +454,7 @@ class CGAVector(Vector):  # pylint: disable=too-many-public-methods
         if rotation:
             r = xnp.linalg.eigh(l_dash)[1][..., -1]
         else:
-            r = xnp.identity(s)[0] * np.ones([*p.shape[:-1], 1])  # type: ignore
+            r = xnp.identity(s)[0] * np.ones([*p.shape[:-1], 1])
         t = xnp.einsum("...ij,...jk,...k->...i", l_qq_inv, l_qr, -r)
         m = xnp.concatenate([r, t], axis=-1)
         motor = (m * basis).sum(-1).view(cls)

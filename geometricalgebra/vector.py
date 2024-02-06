@@ -1,4 +1,5 @@
 """Elementary data types for geometric algebra"""
+
 from __future__ import annotations
 
 import os
@@ -32,18 +33,18 @@ elif ga_numpy == "tensorflow":
     import tensorflow.experimental.numpy as tnp  # pylint: disable=import-error
     import tensorflow.linalg as tf_linalg  # pylint: disable=import-error
 
-    Array = ArrayLike = Any  # type: ignore
+    Array = ArrayLike = Any
     tnp.experimental_enable_numpy_behavior()  # dtype_conversion_mode="safe")
     tnp.linalg = tf_linalg
-    from tensorflow.nn import softmax  # type: ignore  # pylint: disable=import-error
+    from tensorflow.nn import softmax  # pylint: disable=import-error
 
     FRAMEWORK = Framework(tnp, tf_linalg, softmax)
 
 elif ga_numpy == "numpy":
-    from scipy.special import softmax  # type: ignore
+    from scipy.special import softmax
 
     FRAMEWORK = Framework(np, np.linalg, softmax)
-    Array = ArrayLike = Any  # type: ignore
+    Array = ArrayLike = Any
 else:
     raise NotImplementedError(f"Unknown backend: {ga_numpy}")
 
@@ -449,9 +450,11 @@ class Vector:  # pylint: disable=too-many-public-methods
         if not self.grades:
             return type(self)(self.xnp().zeros([*self.shape, self._algebra.mask_size(grades)], self.dtype), grades)
         tmp = [
-            self._values[..., self._algebra.mask_from_grades(frozenset([g]), self.grades)]
-            if g in self.grades
-            else self.xnp().zeros([*self.shape, self._algebra.mask_size(frozenset([g]))], dtype=self._values.dtype)
+            (
+                self._values[..., self._algebra.mask_from_grades(frozenset([g]), self.grades)]
+                if g in self.grades
+                else self.xnp().zeros([*self.shape, self._algebra.mask_size(frozenset([g]))], dtype=self._values.dtype)
+            )
             for g in grades
         ]
         result = self.xnp().concatenate(tmp, axis=-1)  # pylint: disable=no-value-for-parameter, unexpected-keyword-arg

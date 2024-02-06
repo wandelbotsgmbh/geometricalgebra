@@ -1,4 +1,5 @@
 """Example for quaternion interpolation"""
+
 import numpy as np
 
 from geometricalgebra import cga3d, cga4d

@@ -1,4 +1,5 @@
 """Handling 3d CGA Tensors"""
+
 from __future__ import annotations
 
 from functools import lru_cache

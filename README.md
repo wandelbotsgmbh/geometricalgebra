@@ -1,5 +1,7 @@
 # geometricalgebra
 
+![badge](https://github.com/wandelbotsgmbh/geometricalgebra/actions/workflows/python-app.yml/badge.svg)
+
 Library implementing conformal geometric algebra.
 
 The key features are:
