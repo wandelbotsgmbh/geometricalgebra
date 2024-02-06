@@ -21,7 +21,6 @@ jaxlib = { version = "0.4.10", optional = true }
 all = ["matplotlib", "tensorflow", "jax", "jaxlib"]
 
 [tool.poetry.group.dev.dependencies]
-# deps for test pipeline
 pytest = "7.4.4"
 pylint = "2.15.4"
 mypy = "^1.8.0"
@@ -29,8 +28,6 @@ isort = "5.10.1"
 darglint = "1.8.1"
 black = "24.1.1"
 nbval = "0.10.0"
-coverage = "6.4.4"
-nlopt = { version = "*", platform = "linux" }
 pytest-cov = "4.1.0"
 pytest-mpl = "0.16.1"
 pdoc = "12.1.0"
