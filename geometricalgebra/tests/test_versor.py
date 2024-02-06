@@ -1,5 +1,6 @@
 """Test versors, i.e., various kinds of transformations
 """
+
 import numpy as np
 import pytest
 from scipy.spatial.transform import Rotation

@@ -1,4 +1,5 @@
 """Elementary data types for geometric algebra"""
+
 from __future__ import annotations
 
 import os
@@ -449,9 +450,11 @@ class Vector:  # pylint: disable=too-many-public-methods
         if not self.grades:
             return type(self)(self.xnp().zeros([*self.shape, self._algebra.mask_size(grades)], self.dtype), grades)
         tmp = [
-            self._values[..., self._algebra.mask_from_grades(frozenset([g]), self.grades)]
-            if g in self.grades
-            else self.xnp().zeros([*self.shape, self._algebra.mask_size(frozenset([g]))], dtype=self._values.dtype)
+            (
+                self._values[..., self._algebra.mask_from_grades(frozenset([g]), self.grades)]
+                if g in self.grades
+                else self.xnp().zeros([*self.shape, self._algebra.mask_size(frozenset([g]))], dtype=self._values.dtype)
+            )
             for g in grades
         ]
         result = self.xnp().concatenate(tmp, axis=-1)  # pylint: disable=no-value-for-parameter, unexpected-keyword-arg

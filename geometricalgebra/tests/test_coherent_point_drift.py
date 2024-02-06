@@ -1,4 +1,5 @@
 """Test the coherent point drift algorithm"""
+
 from pathlib import Path
 
 import numpy as np
