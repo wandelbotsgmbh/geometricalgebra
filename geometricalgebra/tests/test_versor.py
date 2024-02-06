@@ -2,7 +2,6 @@
 """
 import numpy as np
 import pytest
-from icecream import ic
 from scipy.spatial.transform import Rotation
 
 from geometricalgebra import cga3d
@@ -146,8 +145,8 @@ def test_optimal_rotor(rotation, translation, dilation, only_2d, shape):
         only_2d=only_2d,
     )
     assert np.allclose(optimal_motor.reverse_norm(), 1)
-    ic(versor)
-    ic(optimal_motor)
+    print(versor)
+    print(optimal_motor)
     assert allclose(versor, optimal_motor) or allclose(versor, -optimal_motor)
 
 
