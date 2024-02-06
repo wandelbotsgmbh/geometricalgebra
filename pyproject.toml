@@ -22,7 +22,7 @@ all = ["matplotlib", "tensorflow", "jax", "jaxlib"]
 
 [tool.poetry.group.dev.dependencies]
 # deps for test pipeline
-pytest = "8.0.0"
+pytest = "7.4.4"
 pylint = "2.15.4"
 mypy = "^1.8.0"
 isort = "5.10.1"
