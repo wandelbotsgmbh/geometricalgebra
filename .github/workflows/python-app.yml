@@ -25,9 +25,12 @@ jobs:
     - name: Install dependencies
       run: |
         poetry install -E all
-    - name: Test with pytest
+    - name: Test with pytest geometricalgebra
       run: |
         poetry run pytest
+    - name: Test notebooks with pytest
+      run: |
+        poetry run pytest notebooks
     - name: Lint with black, isort, and ruff
       run: |
         poetry run black --check geometricalgebra/
