@@ -31,10 +31,11 @@ jobs:
     - name: Test notebooks with pytest geometricalgebra
       run: |
         poetry run pytest notebooks
-    - name: Lint with black, isort
+    - name: Analyze with linter black, isort, and darglint
       run: |
-        poetry run black --check geometricalgebra/
-        poetry run isort --check geometricalgebra/
+        poetry run black --check geometricalgebra
+        poetry run isort --check geometricalgebra
+        poetry run darglint -z long geometricalgebra
     - name: Type checking with mypy
       run: |
         pip install mypy
