@@ -31,7 +31,7 @@ jobs:
     - name: Test notebooks with pytest
       run: |
         poetry run pytest notebooks
-    - name: Lint with black, isort, and ruff
+    - name: Lint with black, isort
       run: |
         poetry run black --check geometricalgebra/
         poetry run isort --check geometricalgebra/
