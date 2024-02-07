@@ -27,13 +27,15 @@ jobs:
         poetry install -E all
     - name: Test with pytest
       run: |
-        poetry run pytest
-    - name: Lint with black, isort, and ruff
+        poetry run pytest geometricalgebra
+    - name: Test notebooks with pytest geometricalgebra
       run: |
-        pip install ruff
-        ruff --output-format=github .
-        poetry run black --check geometricalgebra/
-        poetry run isort --check geometricalgebra/
+        poetry run pytest notebooks
+    - name: Analyze with linter black, isort, and darglint
+      run: |
+        poetry run black --check geometricalgebra
+        poetry run isort --check geometricalgebra
+        poetry run darglint -z long geometricalgebra
     - name: Type checking with mypy
       run: |
         pip install mypy

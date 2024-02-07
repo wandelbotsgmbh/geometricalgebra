@@ -21,17 +21,14 @@ jaxlib = { version = "0.4.10", optional = true }
 all = ["matplotlib", "tensorflow", "jax", "jaxlib"]
 
 [tool.poetry.group.dev.dependencies]
-# deps for test pipeline
 pytest = "7.4.4"
 pylint = "2.15.4"
 mypy = "^1.8.0"
 isort = "5.10.1"
 darglint = "1.8.1"
 black = "24.1.1"
-nbval = "0.9.6"
-coverage = "6.4.4"
-nlopt = { version = "*", platform = "linux" }
-pytest-cov = "3.0.0"
+nbval = "0.10.0"
+pytest-cov = "4.1.0"
 pytest-mpl = "0.16.1"
 pdoc = "12.1.0"
 
@@ -64,13 +61,11 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 addopts = """
-    --cov=geometricalgebra --cov-report xml:reports/cov.xml
     --doctest-modules
-    --junitxml=reports/pytest.xml
     --nbval
     --mpl
     --mpl-baseline-path=baseline
-    --current-env"""
+    --nbval-current-env"""
 junit_family = "xunit2"
 norecursedirs = "develop .ipynb_checkpoints .venv .tox *.egg"
 testpaths = """
