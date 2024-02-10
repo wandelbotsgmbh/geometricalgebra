@@ -5,7 +5,7 @@
 Library implementing conformal geometric algebra.
 
 The key features are:
-- Fast numerical implementation of multivector and it exterior algebra
+- Fast numerical implementation of multivector and its exterior algebra
 - The library supports various backends (numpy, tensorflow, jax)
 - Full support of autograd works when using jax and tensorflow
 - All operation work for single multivector or tensors of multivector. Broadcasting is also supported.
