@@ -2,7 +2,6 @@
 
 from geometricalgebra.algebra import GeometricAlgebra
 from geometricalgebra.cga import CGAVector
-import numpy as np
 
 ALGEBRA = GeometricAlgebra((1, 1, 1, -1))
 
@@ -48,7 +47,7 @@ class Vector(CGAVector):
         raise NotImplementedError()
 
 
-e_1, e_2, e_plus, e_minus = Vector(np.eye(4), grade=1)
+e_1, e_2, e_plus, e_minus = Vector.basis()
 e_inf = e_plus + e_minus
 e_0 = (e_minus - e_plus) / 2
 i4 = e_1 ^ e_2 ^ e_inf ^ e_0
