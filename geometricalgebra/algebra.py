@@ -51,7 +51,7 @@ class GeometricAlgebra:
     _instances: Dict[Tuple[int, ...], "GeometricAlgebra"] = {}
 
     def __repr__(self):
-        return f"GeometricAlgebra({self.signature()})"
+        return f"GeometricAlgebra({self.signature})"
 
     def __new__(cls, signature: Tuple[int, ...]):
         if signature not in cls._instances:
