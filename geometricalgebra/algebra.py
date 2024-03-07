@@ -180,7 +180,7 @@ class GeometricAlgebra:
 
     @lru_cache(2**14)
     def grades_of_product(
-        self, grades_a: Grades, grades_b: Grades, product_type: ProductType = ProductType.GEOMETRIC
+        self, grades_left: Grades, grades_right: Grades, product_type: ProductType = ProductType.GEOMETRIC
     ) -> Grades:
         """Return the grades which might have non-zero entries given the grades of the two inputs multivectors
 
@@ -188,8 +188,8 @@ class GeometricAlgebra:
             e.g., a & a
 
         Args:
-            grades_a: the grades of the first argument
-            grades_b: the grades of the second argument
+            grades_left: the grades of the left argument
+            grades_right: the grades of the right argument
             product_type: type of the product (inner, outer, geometric)
 
         Returns:
@@ -198,7 +198,7 @@ class GeometricAlgebra:
         Raises:
             TypeError: if product_type is of wrong type
         """
-        all_pairs = ((i, j) for i in grades_a for j in grades_b)
+        all_pairs = ((i, j) for i in grades_left for j in grades_right)
         if product_type in (ProductType.GEOMETRIC, ProductType.COMMUTATOR, ProductType.ANTICOMMUTATOR):
             # TODO(dv): commutator and anticommutator output grades can be narrowed down (e.g. based on the generator matrix)
             result = (i for (a, b) in all_pairs for i in range(abs(a - b), a + b + 1, 2))
