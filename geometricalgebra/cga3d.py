@@ -87,11 +87,7 @@ class Vector(CGAVector):
         return self.xnp().einsum("ij,...j->...i", a, self._values), control_points
 
 
-e_1 = Vector([1.0, 0, 0, 0, 0], grade=1)
-e_2 = Vector([0.0, 1, 0, 0, 0], grade=1)
-e_3 = Vector([0.0, 0, 1, 0, 0], grade=1)
-e_plus = Vector([0.0, 0, 0, 1, 0], grade=1)
-e_minus = Vector([0.0, 0, 0, 0, 1], grade=1)
+e_1, e_2, e_3, e_plus, e_minus = Vector(np.eye(5), grade=1)
 e_inf = e_plus + e_minus
 e_0 = (e_minus - e_plus) / 2
 i3 = e_1 ^ e_2 ^ e_3

@@ -1,7 +1,7 @@
 """Handling 4d CGA Tensors"""
 
 from typing import Iterable, Union
-
+import numpy as np
 from geometricalgebra.algebra import GeometricAlgebra
 from geometricalgebra.cga import CGAVector
 
@@ -58,11 +58,8 @@ class Vector(CGAVector):
         super().__init__(values, grade)
 
 
-e_1 = Vector([1, 0, 0, 0, 0, 0], grade=1)
-e_2 = Vector([0, 1, 0, 0, 0, 0], grade=1)
-e_3 = Vector([0, 0, 1, 0, 0, 0], grade=1)
-e_4 = Vector([0, 0, 0, 1, 0, 0], grade=1)
-e_inf = Vector([0, 0, 0, 0, 1, 1], grade=1)
-e_0 = Vector([0, 0, 0, 0, -0.5, 0.5], grade=1)
+e_1, e_2, e_3, e_4, e_plus, e_minus = Vector(np.eye(6), grade=1)
+e_inf = e_plus + e_minus
+e_0 = (e_minus - e_plus) / 2
 i6 = e_1 ^ e_2 ^ e_3 ^ e_4 ^ e_inf ^ e_0
 i4 = e_1 ^ e_2 ^ e_3 ^ e_4

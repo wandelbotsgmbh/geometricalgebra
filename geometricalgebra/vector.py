@@ -76,6 +76,10 @@ class Vector:  # pylint: disable=too-many-public-methods
         return FRAMEWORK
 
     @classmethod
+    def basis(cls) -> Vector:
+        return cls.xnp().eye(cls.algebra.dims_of_grade[1])
+
+    @classmethod
     def xnp(cls):
         return cls.framework().numpy
 
