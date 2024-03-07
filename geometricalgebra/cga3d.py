@@ -20,8 +20,9 @@ ALGEBRA = GeometricAlgebra((1, 1, 1, 1, -1))
 class Vector(CGAVector):
     """A 3d CGA Tensor"""
 
+    @classmethod
     @property
-    def algebra(self):
+    def algebra(cls):
         return ALGEBRA
 
     @classmethod

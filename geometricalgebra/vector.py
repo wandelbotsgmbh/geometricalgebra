@@ -108,8 +108,9 @@ class Vector:  # pylint: disable=too-many-public-methods
         mask = self.algebra.mask_from_grades(grades, self._grades)
         return type(self)(self._values[..., mask], grades)
 
+    @classmethod
     @property
-    def algebra(self):
+    def algebra(cls):
         raise NotImplementedError()
 
     @property
