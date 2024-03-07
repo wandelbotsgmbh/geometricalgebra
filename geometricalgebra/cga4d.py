@@ -1,6 +1,7 @@
 """Handling 4d CGA Tensors"""
 
 from typing import Iterable, Union
+
 from geometricalgebra.algebra import GeometricAlgebra
 from geometricalgebra.cga import CGAVector
 
