@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "geometricalgebra"
-version = '0.1.0'
+version = '0.1.1'
 description = "A package for conformal geometric algebra"
 authors = [
     "Daniel Vorberg <daniel.vorberg@wandelbots.com>",
