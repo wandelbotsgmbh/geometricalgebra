@@ -78,7 +78,7 @@ class CGAVector(Vector):  # pylint: disable=too-many-public-methods
 
     @classmethod
     def from_euclid(cls: Type[Subtype], vectors: ArrayLike) -> Subtype:
-        """Create a positional vector from euclidean points (via Hestenes mapping)
+        """Create a positional vector from Euclidean points (via Hestenes mapping)
 
         Args:
             vectors: any array of shape (..., 3)
@@ -91,7 +91,7 @@ class CGAVector(Vector):  # pylint: disable=too-many-public-methods
 
     @classmethod
     def from_euclid_2d(cls: Type[Subtype], vectors: ArrayLike) -> Subtype:
-        """Create a positional vector from euclidean points in 2D (via Hestenes mapping) in the xy-plane
+        """Create a positional vector from Euclidean points in 2D (via Hestenes mapping) in the xy-plane
 
         Args:
             vectors: any array of shape (..., 2)
@@ -398,7 +398,7 @@ class CGAVector(Vector):  # pylint: disable=too-many-public-methods
             only_2d: Whether only 2d motors are valid
 
         Returns:
-            motor that maps p to to the entities q (as far as possible)
+            motor that maps p to the entities q (as far as possible)
 
         Reference:
             Valkenburg, Dorst, "Estimating Motors from a Variety of Geometric Data in 3D Conformal Geometric Algebra" (2011)

@@ -13,10 +13,7 @@ The key features are:
 
 # Installation
 
-From source:
-
-    git clone git@github.com:wandelbotsgmbh/geometricalgebra.git
-    pip install ./geometricalgebra/
+    pip install geometricalgebra
 
 # Example
 

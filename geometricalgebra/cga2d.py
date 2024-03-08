@@ -9,8 +9,9 @@ ALGEBRA = GeometricAlgebra((1, 1, 1, -1))
 class Vector(CGAVector):
     """A 2d CGA Tensor"""
 
+    @classmethod  # type: ignore
     @property
-    def algebra(self):
+    def algebra(cls):
         return ALGEBRA
 
     @classmethod
@@ -46,10 +47,7 @@ class Vector(CGAVector):
         raise NotImplementedError()
 
 
-e_1 = Vector([1, 0, 0, 0], grade=1)
-e_2 = Vector([0, 1, 0, 0], grade=1)
-e_plus = Vector([0, 0, 1, 0], grade=1)
-e_minus = Vector([0, 0, 0, 1], grade=1)
+e_1, e_2, e_plus, e_minus = Vector.basis()
 e_inf = e_plus + e_minus
 e_0 = (e_minus - e_plus) / 2
 i4 = e_1 ^ e_2 ^ e_inf ^ e_0

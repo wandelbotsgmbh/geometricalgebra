@@ -76,6 +76,10 @@ class Vector:  # pylint: disable=too-many-public-methods
         return FRAMEWORK
 
     @classmethod
+    def basis(cls) -> Vector:
+        return cls(cls.xnp().eye(cls.algebra.dims_of_grade[1]), grade=1)  # type: ignore
+
+    @classmethod
     def xnp(cls):
         return cls.framework().numpy
 
@@ -104,8 +108,9 @@ class Vector:  # pylint: disable=too-many-public-methods
         mask = self.algebra.mask_from_grades(grades, self._grades)
         return type(self)(self._values[..., mask], grades)
 
+    @classmethod  # type: ignore
     @property
-    def algebra(self):
+    def algebra(cls):
         raise NotImplementedError()
 
     @property
