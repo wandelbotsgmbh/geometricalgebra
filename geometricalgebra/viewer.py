@@ -81,6 +81,8 @@ class Viewer:
         return dir(self) + dir(self._axes)
 
     def trace_point(self, tensor: cga3d.Vector, linestyle="None", marker="o", **kwargs):
+        if isinstance(tensor, list):
+            tensor = cga3d.Vector.stack(tensor)
         return self._axes.plot(*tensor.ravel().to_euclid().T, linestyle=linestyle, marker=marker, **kwargs)
 
     def trace_point_pair(self, tensor: cga3d.Vector, linestyle="-", startmarker="o", endmarker=">", **kwargs):
