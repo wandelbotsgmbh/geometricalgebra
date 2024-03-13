@@ -487,6 +487,14 @@ class Vector:  # pylint: disable=too-many-public-methods
             raise TypeError("Can not split tensors of unknown dimension")
         return [self[i] for i in range(length)]
 
+    def sparsified(self):
+        """Keep only the grades with non-zero elements"""
+        new_grades = set()
+        for grade in self.grades:
+            if self.xnp().count_nonzero(abs(self(grade)._values) > 1e-9):
+                new_grades.add(grade)
+        return self(new_grades)
+
     @classmethod
     def from_scalar(cls: Type[Subtype], scalar: ArrayLike, pseudo: bool = False) -> Subtype:
         """Create a multivector (tensor) representing scalar(s)
