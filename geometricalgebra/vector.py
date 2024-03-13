@@ -488,8 +488,7 @@ class Vector:  # pylint: disable=too-many-public-methods
         return [self[i] for i in range(length)]
 
     def sparsified(self):
-        """Keep only the grades with non-zero elements
-        """
+        """Keep only the grades with non-zero elements"""
         new_grades = set()
         for grade in self.grades:
             if self.xnp().count_nonzero(abs(self(grade)._values) > 1e-9):
