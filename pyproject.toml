@@ -19,7 +19,7 @@ jaxlib = { version = "0.4.10", optional = true }
 
 
 [tool.poetry.extras]
-all = ["matplotlib", "tensorflow", "jax", "jaxlib"]
+all = ["matplotlib", "tensorflow", "tensorflow-macos", "jax", "jaxlib"]
 
 [tool.poetry.group.dev.dependencies]
 pytest = "7.4.4"
