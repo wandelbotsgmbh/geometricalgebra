@@ -4,6 +4,8 @@ version = '0.1.2'
 description = "A package for conformal geometric algebra"
 authors = [
     "Daniel Vorberg <daniel.vorberg@wandelbots.com>",
+    "Patrick Schmager <patrick.schmager@wandelbots.com>",
+    "Christoph Biering <christoph.biering@wandelbots.com>",
 ]
 readme = "README.md"
 
@@ -11,8 +13,7 @@ readme = "README.md"
 python = ">=3.9,<3.11"
 numpy = ">=1.19.0"
 scipy = ">=1.8.0"
-tensorflow = { version = "2.14.0", optional = true, platform = "linux" }
-tensorflow-macos = { version = "2.14.1", optional = true, platform = "darwin"}
+tensorflow = { version = ">=2.16.1", optional = true }
 matplotlib = { version = ">=3.4.2", optional = true }
 jax = { version = "0.4.10", optional = true }
 jaxlib = { version = "0.4.10", optional = true }
