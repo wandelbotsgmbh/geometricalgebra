@@ -15,8 +15,8 @@ numpy = ">=1.19.0"
 scipy = ">=1.8.0"
 tensorflow = { version = ">=2.16.1", optional = true }
 matplotlib = { version = ">=3.4.2", optional = true }
-jax = { version = "*", optional = true }
-jaxlib = { version = "*", optional = true }
+jax = { version = ">=0.4.27", optional = true }
+jaxlib = { version = ">=0.4.27", optional = true }
 
 
 [tool.poetry.extras]
