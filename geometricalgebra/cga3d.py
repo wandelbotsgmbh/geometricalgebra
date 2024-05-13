@@ -178,3 +178,35 @@ def get_origin_pose(weight: float = 1.0):
     return Vector.concatenate(
         [e_0[None], weight * TETRAHEDRON / 2, weight * Vector.from_scalar(np.sqrt(3), pseudo=True)[None]]
     )
+
+
+def classify(vector: Vector, eps=1e-8):
+    """Classify the vector
+
+    Args:
+        vector: the vector to classify
+
+    Returns:
+        the classification of the vector
+    """
+    if len(vector.grades) == 1:
+        if vector.grade == 0:
+            return "scalar"
+        if vector.grade == 1:
+            pass
+
+        if vector.grade == 5:
+            return "pseudo-scalar"
+
+
+        if vector.grades == {1}:
+            if vector.square_norm() < eps:
+                return "flat point"
+            else:
+                raise NotImplementedError()
+
+        if vector.is_flat():
+            pass
+
+    raise NotImplementedError("multi-grade vector")
+

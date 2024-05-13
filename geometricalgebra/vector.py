@@ -19,7 +19,7 @@ class Framework(NamedTuple):
     softmax: Any
 
 
-ga_numpy = os.environ.get("GEOMETRICALGEBRA_NUMPY", "numpy")
+ga_numpy = os.environ.get("GEOMETRICALGEBRA_NUMPY", "tensorflow")
 if ga_numpy == "jax":
     import jax
     import jax.numpy as jnp
@@ -116,9 +116,6 @@ class Vector:  # pylint: disable=too-many-public-methods
     @property
     def _algebra(self):
         return self.algebra
-
-    # def framework(self):
-    #     return jnp
 
     def numpy(self):
         return self
