@@ -254,7 +254,7 @@ def test_motor_from_and_to_screw2():
     assert np.allclose(reference, result)
 
 
-def from_and_to_quaternion():
+def test_from_and_to_quaternion():
     quaternion = [1, 2, 3, 4]
     versor = cga3d.Vector.from_quaternion(quaternion)
     result = versor.to_quaternion()
